@@ -1,4 +1,4 @@
-namespace StationeersCommunityPatches
+namespace AproposmathsStationeersPatches
 {
     using Assets.Scripts.Objects.Electrical;
     using Assets.Scripts;
@@ -6,12 +6,9 @@ namespace StationeersCommunityPatches
     using UnityEngine;
 
     // Flips Logic Display digits when mounted upside down
-    [HarmonyPatch]
     static class PatchLogicDisplayOrientation
     {
-        [HarmonyPatch(typeof(LogicDisplay))]
-        [HarmonyPatch(nameof(LogicDisplay.SetDisplay))]
-        [HarmonyPostfix]
+        [HarmonyPatch(typeof(LogicDisplay)), HarmonyPatch(nameof(LogicDisplay.SetDisplay)), HarmonyPostfix]
         static void LogicDisplay_SetDisplay_Postfix(LogicDisplay __instance)
         {
             var yRotated = __instance.Transform.localRotation * new Vector3(0, 1, 0);

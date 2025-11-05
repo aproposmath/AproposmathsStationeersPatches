@@ -2,9 +2,9 @@
 <Project Sdk="Microsoft.NET.Sdk" InitialTargets="PrintPaths">
   <Import Project="Main.props" Condition="Exists('Main.props')" />
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <MSBuildVerbosity>normal</MSBuildVerbosity>
-    <AssemblyName>CommunityPatches</AssemblyName>
+    <AssemblyName>AproposmathsStationeersPatches</AssemblyName>
     <Version>$(VERSION)</Version>
     <Description>Unofficial bugfixes for Stationeers</Description>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -23,7 +23,7 @@
   </ItemGroup>
   <Target Name="GetVersionFromPython" BeforeTargets="BeforeBuild">
     <!-- The argument after create_version_info.py must match the namespace name in Main.cs -->
-    <Exec Command="python3 create_version_info.py StationeersCommunityPatches" />
+    <Exec Command="python3 create_version_info.py AproposmathsStationeersPatches" />
     <ReadLinesFromFile File="version.txt">
       <Output TaskParameter="Lines" PropertyName="VersionString" />
     </ReadLinesFromFile>
@@ -37,6 +37,7 @@
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+    <PackageReference Include="ic10extender" Version="2.0.0" />
     <Publicize Include="Assembly-CSharp" />
     <Reference Include="Unity.TextMeshPro">
       <HintPath>$(StationeersDllDir)/Unity.TextMeshPro.dll</HintPath>

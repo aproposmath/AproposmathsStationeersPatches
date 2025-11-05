@@ -2,7 +2,7 @@ using Assets.Scripts.Networks;
 using Assets.Scripts.Objects.Motherboards;
 using HarmonyLib;
 
-namespace StationeersCommunityPatches
+namespace AproposmathsStationeersPatches
 {
     // Patches LogicType StackSize in IC Code
     [HarmonyPatch]

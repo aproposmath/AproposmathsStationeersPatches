@@ -1,17 +1,14 @@
-# Stationeers Community Patches
+# AproposMath's Stationeers Patches
 
-This mod fixes some issues in Stationeers.
+Various patches/enhancements for Stationeers
 
-Currently it fixes two issues:
+- Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
+- Rotate content of logic displays if they are mounted upside down
+- Add IC10 instructions for hash evaluation at run-time (highly experimental, just for testing, disabled by default)
 
-- Reading `StackSize` (number of devices) from a network:
-```asm
-l r0 db:0 StackSize
-```
-
-- LogicDisplay text is shown correctly when mounted upside down
+These patches/fixes can be enabled/disabled in the StationeersLaunchPad configuration menu at startup.
+This mod does not change save files, it's safe to add/remove it at any time. Only IC10 scripts using fixed/added instructions will not work anymore, obviously.
 
 ## Installation
-
-This mode requires [BepInEx](https://github.com/BepInEx/BepInEx).
-Download the latest release from the [releases page](https://github.com/aproposmath/stationeers-community-patches/releases) and unzip it into your `BepInEx/plugins` folder.
+This is a **StationeersLaunchPad** Plugin Mod. It requires BepInEx to be installed.
+See: https://github.com/StationeersLaunchPad/StationeersLaunchPad
