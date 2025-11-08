@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Aproposmath's Stationeers Patches</Name>
+  <Author>aproposmath</Author>
+  <Version>0.0.3</Version>
+  <Description>
+        Various patches/enhancements for Stationeers
+
+        - Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
+        - Rotate content of logic displays if they are mounted upside down
+        - Add IC10 instructions for hash evaluation at run-time (highly experimental, just for testing, disabled by default)
+
+        These patches/fixes can be enabled/disabled in the StationeersLaunchPad configuration menu at startup.
+        This mod does not change save files, it's safe to add/remove it at any time. Only IC10 scripts using fixed/added instructions will not work anymore, obviously.
+
+        [b]Installation[/b]
+        This is a [b]StationeersLaunchPad[/b] Plugin Mod. It requires BepInEx to be installed.
+        See: https://github.com/StationeersLaunchPad/StationeersLaunchPad
+
+        Source Code: https://github.com/aproposmath/AprosStationeersPatches
+    </Description>
+  <ChangeLog>
+  </ChangeLog>
+  <Tags>
+    <Tag>IC10</Tag>
+    <Tag>Patch</Tag>
+    <Tag>Fix</Tag>
+    <Tag>BepInEx</Tag>
+    <Tag>StationeersLaunchPad</Tag>
+  </Tags>
+  <Dependencies />
+  <LoadBefore />
+  <LoadAfter />
+  <InGameDescription><![CDATA[
+<size=30><color=#ffff00>IC10 Editor</color></size>
+Various patches for Stationeers.
+
+- Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
+- Rotate content of logic displays if they are mounted upside down
+- Add IC10 instructions for hash evaluation at run-time (highly experimental, just for testing, disabled by default)
+
+These patches/fixes can be enabled/disabled in the StationeersLaunchPad configuration menu at startup.
+This mod does not change save files, it's safe to add/remove it at any time. Only IC10 scripts using fixed/added instructions will not work anymore, obviously.
+
+<b><color=#ffff00>Installation</color></b>
+This is a <color=#ffa500>StationeersLaunchPad</color> Plugin Mod. It requires BepInEx to be installed.
+See: https://github.com/StationeersLaunchPad/StationeersLaunchPad
+
+Source Code: https://github.com/aproposmath/AprosStationeersPatches
+]]></InGameDescription>
+</ModMetadata>
