@@ -43,10 +43,6 @@
       <HintPath>$(StationeersDllDir)/Unity.TextMeshPro.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="UniTask">
-      <HintPath>$(StationeersDllDir)/UniTask.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(StationeersDllDir)/Newtonsoft.Json.dll</HintPath>
       <Private>false</Private>

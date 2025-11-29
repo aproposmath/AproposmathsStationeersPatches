@@ -2,7 +2,7 @@
 <ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>Aproposmath's Stationeers Patches</Name>
   <Author>aproposmath</Author>
-  <Version>0.0.3</Version>
+  <Version>0.0.4</Version>
   <Description>
         Various patches/enhancements for Stationeers
 
@@ -17,10 +17,10 @@
         This is a [b]StationeersLaunchPad[/b] Plugin Mod. It requires BepInEx to be installed.
         See: https://github.com/StationeersLaunchPad/StationeersLaunchPad
 
-        Source Code: https://github.com/aproposmath/AprosStationeersPatches
+        Source Code: https://github.com/aproposmath/AproposmathsStationeersPatches
     </Description>
-  <ChangeLog>
-  </ChangeLog>
+  <ChangeLog />
+  <WorkshopHandle>3601834995</WorkshopHandle>
   <Tags>
     <Tag>IC10</Tag>
     <Tag>Patch</Tag>
@@ -32,7 +32,7 @@
   <LoadBefore />
   <LoadAfter />
   <InGameDescription><![CDATA[
-<size=30><color=#ffff00>IC10 Editor</color></size>
+<size=30><color=#ffff00>Aproposmath's Stationeers Patches</color></size>
 Various patches for Stationeers.
 
 - Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
