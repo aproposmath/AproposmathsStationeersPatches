@@ -59,7 +59,6 @@ namespace AproposmathsStationeersPatches
         {
             RotateLogicDisplayText = Config.Bind("General", "Rotate Logic Display Text", true, "Rotate the text on logic displays if mounted upside down");
             FixIC10StackSize = Config.Bind("General", "Fix IC10 StackSize LogicType", true, "Fix reading the number of attached devices on a cable network in IC10");
-            RegisterIC10Instructions = Config.Bind("General", "Register IC10 Instructions (experimental)", false, "Register IC10 Instructions 'hash', 'hash2', 'hashn' and 'itoa'. These are very experimental and will likely change/be removed. Use only for testing");
             PlayerStats = Config.Bind("General", "PlayerStats", true, "Show more detailed player stats in tooltips");
         }
 
@@ -79,12 +78,6 @@ namespace AproposmathsStationeersPatches
 
                 _harmony = new Harmony(PluginGuid);
                 _harmony.PatchAll();
-
-                if (IC10HashInstructions.Enabled && RegisterIC10Instructions.Value)
-                {
-                    IC10HashInstructions.Register();
-                    L.Info("IC10 Hash Instructions registered");
-                }
 
                 // This was fixed with version 0.2.6057.26562 of Stationeers, so never apply the patch for newer versions
                 if (gameVersion < System.Version.Parse("0.2.6057.26562") && RotateLogicDisplayText.Value)
