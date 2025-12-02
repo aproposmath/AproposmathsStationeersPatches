@@ -22,7 +22,17 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
-      - run: steamcmd +login anonymous +sDepotDownloadFileFilter "*.dll" +app_update 600760 -beta beta validate +quit
+      - run: |
+          for i in {1..8}; do
+            steamcmd +login anonymous +sDepotDownloadFileFilter "*.dll" +app_update 600760 validate +quit && break
+            echo "SteamCMD failed, retry #$i"
+            sleep 10
+          done
+          LATEST_URL=$(curl -s https://api.github.com/repos/StationeersLaunchpad/StationeersLaunchpad/releases/latest | grep "browser_download_url.*StationeersLaunchPad-client" | cut -d : -f 2,3 | tr -d \")
+          curl -L $LATEST_URL -o StationeersLaunchpad.zip
+          mkdir -p "$STEAM_DIR/steamapps/common/Stationeers Dedicated Server/BepInEx/plugins/"
+          unzip -o StationeersLaunchpad.zip -d "$STEAM_DIR/steamapps/common/Stationeers Dedicated Server/BepInEx/plugins/"
+
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,10 +42,7 @@ jobs:
 
       - name: Build project
         run: |
-          # Merge dlls from submodule with dedicated server dlls
-          export STATIONEERS_DLL_DIR="$GITHUB_WORKSPACE/assemblies/Editor/Stationeers"
-          cp $STEAM_DIR/steamapps/common/Stationeers\ Dedicated\ Server/rocketstation_DedicatedServer_Data/Managed/*.dll $STATIONEERS_DLL_DIR/
-          find $STATIONEERS_DLL_DIR
+          export STATIONEERS_DLL_DIR="$STEAM_DIR/steamapps/common/Stationeers Dedicated Server/rocketstation_DedicatedServer_Data/Managed"
           dotnet restore
           dotnet build --configuration Release Main.csproj
 
