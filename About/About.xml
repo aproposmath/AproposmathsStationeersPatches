@@ -24,7 +24,12 @@
 
         Source Code: https://github.com/aproposmath/AproposmathsStationeersPatches
     </Description>
-  <ChangeLog />
+  <ChangeLog >
+    v0.0.5:
+
+    - Remove hash IC10 instructions
+    - Add more detailed player stats (mood, hygiene)
+  </ChangeLog >
   <WorkshopHandle>3601834995</WorkshopHandle>
   <Tags>
     <Tag>IC10</Tag>
