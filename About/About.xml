@@ -2,7 +2,7 @@
 <ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>Aproposmath's Stationeers Patches</Name>
   <Author>aproposmath</Author>
-  <Version>0.0.5</Version>
+  <Version>0.5.0</Version>
   <Description>
         Various small patches/enhancements for Stationeers
 
@@ -25,7 +25,7 @@
         Source Code: https://github.com/aproposmath/AproposmathsStationeersPatches
     </Description>
   <ChangeLog >
-    v0.0.5:
+    v0.5.0:
 
     - Remove hash IC10 instructions
     - Add more detailed player stats (mood, hygiene)
