@@ -2,17 +2,22 @@
 <ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>Aproposmath's Stationeers Patches</Name>
   <Author>aproposmath</Author>
-  <Version>0.0.4</Version>
+  <Version>0.0.5</Version>
   <Description>
-        Various patches/enhancements for Stationeers
+        Various small patches/enhancements for Stationeers
 
+        - Show detailed mood and hygiene stats in the tooltips
         - Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
-        - Rotate content of logic displays if they are mounted upside down
-        - Add IC10 instructions for hash evaluation at run-time (highly experimental, just for testing, disabled by default)
+        - Rotate content of logic displays if they are mounted upside down (disabled on newer game versions, where it's fixed already)
 
         These patches/fixes can be enabled/disabled in the StationeersLaunchPad configuration menu at startup.
-        This mod does not change save files, it's safe to add/remove it at any time. Only IC10 scripts using fixed/added instructions will not work anymore, obviously.
+        This mod
+          - Does not alter safegame files, you can add/remove it at any time without breaking something*
+          - Is client-only, the server (or other players) do not need it in multiplayer games
 
+
+        * You will get errors again in IC10 scripts using `StackSize` of cable networks after removing the mod
+ 
         [b]Installation[/b]
         This is a [b]StationeersLaunchPad[/b] Plugin Mod. It requires BepInEx to be installed.
         See: https://github.com/StationeersLaunchPad/StationeersLaunchPad

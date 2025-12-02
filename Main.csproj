@@ -63,6 +63,14 @@
       <HintPath>$(StationeersDllDir)/Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="StationeersMods.Interface">
+      <HintPath>$(StationeersDllDir)/../../BepInEx/plugins/StationeersLaunchPad/StationeersMods.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LaunchPadBooster">
+      <HintPath>$(StationeersDllDir)/../../BepInEx/plugins/StationeersLaunchPad/LaunchPadBooster.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />

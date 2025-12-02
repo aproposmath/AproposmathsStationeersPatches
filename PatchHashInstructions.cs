@@ -72,7 +72,7 @@ namespace AproposmathsStationeersPatches
 
     public static class IC10HashInstructions
     {
-        private static bool? _enabled;
+        private static bool? _enabled = null;
 
         public static bool Enabled
         {
