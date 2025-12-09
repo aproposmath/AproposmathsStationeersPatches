@@ -2,17 +2,19 @@
 <ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>Aproposmath's Stationeers Patches</Name>
   <Author>aproposmath</Author>
-  <Version>0.5.0</Version>
+  <Version>0.6.0</Version>
   <Description>
         Various small patches/enhancements for Stationeers
 
         - Show detailed mood and hygiene stats in the tooltips
         - Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
+        - Fix indirect register access in `l` and `s` IC10 instructions (e.g. `s rr2 Setting 22`)
+        - Fix access to defined numbers in `l` and `s` IC10 instructions (e.g. `s MYDEFINE Setting 42`)
         - Rotate content of logic displays if they are mounted upside down (disabled on newer game versions, where it's fixed already)
 
         These patches/fixes can be enabled/disabled in the StationeersLaunchPad configuration menu at startup.
         This mod
-          - Does not alter safegame files, you can add/remove it at any time without breaking something*
+          - Does not alter savegame files, you can add/remove it at any time without breaking something*
           - Is client-only, the server (or other players) do not need it in multiplayer games
 
 
@@ -27,8 +29,8 @@
   <ChangeLog >
     v0.5.0:
 
-    - Remove hash IC10 instructions
-    - Add more detailed player stats (mood, hygiene)
+    - Fix indirect register access in `l` and `s` IC10 instructions (e.g. `s rr2 Setting 22`)
+    - Fix access to defined numbers in `l` and `s` IC10 instructions (e.g. `s MYDEFINE Setting 42`)
   </ChangeLog >
   <WorkshopHandle>3601834995</WorkshopHandle>
   <Tags>
@@ -46,8 +48,10 @@
 Various patches for Stationeers.
 
 - Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
-- Rotate content of logic displays if they are mounted upside down
 - Add IC10 instructions for hash evaluation at run-time (highly experimental, just for testing, disabled by default)
+- Fix indirect register access in `l` and `s` IC10 instructions (e.g. `s rr2 Setting 22`)
+- Fix access to defined numbers in `l` and `s` IC10 instructions (e.g. `s MYDEFINE Setting 42`)
+- Rotate content of logic displays if they are mounted upside down (disabled on newer game versions, where it's fixed already)
 
 These patches/fixes can be enabled/disabled in the StationeersLaunchPad configuration menu at startup.
 This mod does not change save files, it's safe to add/remove it at any time. Only IC10 scripts using fixed/added instructions will not work anymore, obviously.

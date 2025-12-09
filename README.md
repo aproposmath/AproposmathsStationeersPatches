@@ -5,10 +5,12 @@ Various small patches/enhancements for Stationeers
 - Show detailed mood and hygiene stats in the tooltips
 - Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
 - Rotate content of logic displays if they are mounted upside down (disabled on newer game versions, where it's fixed already)
+- Fix indirect register access in `l` and `s` IC10 instructions (e.g. `s rr2 Setting 22`)
+- Fix access to defined numbers in `l` and `s` IC10 instructions (e.g. `s MYDEFINE Setting 42`)
 
 These patches/fixes can be enabled/disabled in the StationeersLaunchPad configuration menu at startup.
 This mod
-  - Does not alter safegame files, you can add/remove it at any time without breaking something*
+  - Does not alter savegame files, you can add/remove it at any time without breaking something*
   - Is client-only, the server (or other players) do not need it in multiplayer games
 
 

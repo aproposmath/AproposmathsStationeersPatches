@@ -50,16 +50,17 @@ namespace AproposmathsStationeersPatches
         public const string PluginName = "Aproposmaths Stationeers Patches";
         public const string PluginVersion = VersionInfo.Version;
 
-        public static ConfigEntry<bool> RegisterIC10Instructions;
         public static ConfigEntry<bool> RotateLogicDisplayText;
         public static ConfigEntry<bool> FixIC10StackSize;
         public static ConfigEntry<bool> PlayerStats;
+        public static ConfigEntry<bool> FixLoadSetIndirectOrDefine;
 
         private void BindAllConfigs()
         {
             RotateLogicDisplayText = Config.Bind("General", "Rotate Logic Display Text", true, "Rotate the text on logic displays if mounted upside down");
             FixIC10StackSize = Config.Bind("General", "Fix IC10 StackSize LogicType", true, "Fix reading the number of attached devices on a cable network in IC10");
             PlayerStats = Config.Bind("General", "PlayerStats", true, "Show more detailed player stats in tooltips");
+            FixLoadSetIndirectOrDefine = Config.Bind("General", "fix_load_set_indirect_define", true, "Fix Load/Set instructions in IC10 with defined or indirect reference ids");
         }
 
         private Harmony _harmony = null;
@@ -97,6 +98,12 @@ namespace AproposmathsStationeersPatches
                     _harmony.CreateClassProcessor(typeof(PatchHumanStats), true).Patch();
                     L.Info("PlayerStats patch applied");
                 }
+
+                if (FixLoadSetIndirectOrDefine.Value)
+                {
+                    _harmony.CreateClassProcessor(typeof(PatchSetLoadIndirectOrDefine), true).Patch();
+                    L.Info("FixLoadSetIndirectOrDefine patch applied");
+                }
             }
             catch (Exception ex)
             {
@@ -115,6 +122,7 @@ namespace AproposmathsStationeersPatches
             {
 #if DEBUG
                 // assume that a debug build is loaded by BepInEx ScriptEngine and unpatch
+                L.Info("Debug build detected, unpatching all Harmony patches");
                 _harmony.UnpatchSelf();
 #endif
             }
