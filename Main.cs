@@ -54,6 +54,7 @@ namespace AproposmathsStationeersPatches
         public static ConfigEntry<bool> FixIC10StackSize;
         public static ConfigEntry<bool> PlayerStats;
         public static ConfigEntry<bool> FixLoadSetIndirectOrDefine;
+        public static ConfigEntry<bool> PatchOreDetector;
 
         private void BindAllConfigs()
         {
@@ -61,6 +62,7 @@ namespace AproposmathsStationeersPatches
             FixIC10StackSize = Config.Bind("General", "Fix IC10 StackSize LogicType", true, "Fix reading the number of attached devices on a cable network in IC10");
             PlayerStats = Config.Bind("General", "PlayerStats", true, "Show more detailed player stats in tooltips");
             FixLoadSetIndirectOrDefine = Config.Bind("General", "fix_load_set_indirect_define", true, "Fix Load/Set instructions in IC10 with defined or indirect reference ids");
+            PatchOreDetector = Config.Bind("General", "PatchOreDetector", false, "Show more detailed ore detector stats");
         }
 
         private Harmony _harmony = null;
@@ -103,6 +105,12 @@ namespace AproposmathsStationeersPatches
                 {
                     _harmony.CreateClassProcessor(typeof(PatchSetLoadIndirectOrDefine), true).Patch();
                     L.Info("FixLoadSetIndirectOrDefine patch applied");
+                }
+
+                if (PatchOreDetector.Value)
+                {
+                    _harmony.CreateClassProcessor(typeof(PatchOreDetector), true).Patch();
+                    L.Info("PatchOreDetector patch applied");
                 }
             }
             catch (Exception ex)
