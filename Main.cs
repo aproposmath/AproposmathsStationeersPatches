@@ -81,16 +81,10 @@ namespace AproposmathsStationeersPatches
                 _harmony.PatchAll();
 
                 // This was fixed with version 0.2.6057.26562 of Stationeers, so never apply the patch for newer versions
-                if (gameVersion < System.Version.Parse("0.2.6057.26562") && RotateLogicDisplayText.Value)
+                if (gameVersion < Version.Parse("0.2.6057.26562") && RotateLogicDisplayText.Value)
                 {
                     _harmony.CreateClassProcessor(typeof(PatchLogicDisplayOrientation), true).Patch();
                     L.Info("RotateLogicDisplayText patch applied");
-                }
-
-                if (FixIC10StackSize.Value)
-                {
-                    _harmony.CreateClassProcessor(typeof(PatchStackSize), true).Patch();
-                    L.Info("FixIC10StackSize patch applied");
                 }
 
                 if (PlayerStats.Value)
@@ -99,10 +93,20 @@ namespace AproposmathsStationeersPatches
                     L.Info("PlayerStats patch applied");
                 }
 
-                if (FixLoadSetIndirectOrDefine.Value)
+                // This was fixed with version 0.2.6330.27281 of Stationeers, so never apply the patch for newer versions
+                if (gameVersion < Version.Parse("0.2.6330.27281"))
                 {
-                    _harmony.CreateClassProcessor(typeof(PatchSetLoadIndirectOrDefine), true).Patch();
-                    L.Info("FixLoadSetIndirectOrDefine patch applied");
+                    if (FixIC10StackSize.Value)
+                    {
+                        _harmony.CreateClassProcessor(typeof(PatchStackSize), true).Patch();
+                        L.Info("FixIC10StackSize patch applied");
+                    }
+
+                    if (FixLoadSetIndirectOrDefine.Value)
+                    {
+                        _harmony.CreateClassProcessor(typeof(PatchSetLoadIndirectOrDefine), true).Patch();
+                        L.Info("FixLoadSetIndirectOrDefine patch applied");
+                    }
                 }
             }
             catch (Exception ex)

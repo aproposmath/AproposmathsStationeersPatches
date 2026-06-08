@@ -7,6 +7,8 @@
         Various small patches/enhancements for Stationeers
 
         - Show detailed mood and hygiene stats in the tooltips
+
+        Only relevant on stable (already fixed by the game on beta):
         - Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
         - Fix indirect register access in `l` and `s` IC10 instructions (e.g. `s rr2 Setting 22`)
         - Fix access to defined numbers in `l` and `s` IC10 instructions (e.g. `s MYDEFINE Setting 42`)
@@ -27,10 +29,9 @@
         Source Code: https://github.com/aproposmath/AproposmathsStationeersPatches
     </Description>
   <ChangeLog >
-    v0.5.0:
+    v0.8.0:
 
-    - Fix indirect register access in `l` and `s` IC10 instructions (e.g. `s rr2 Setting 22`)
-    - Fix access to defined numbers in `l` and `s` IC10 instructions (e.g. `s MYDEFINE Setting 42`)
+    - Disable IC10-related patches for newer versions, as they are fixed with 0.2.6330.27281
   </ChangeLog >
   <WorkshopHandle>3601834995</WorkshopHandle>
   <Tags>
@@ -47,8 +48,10 @@
 <size=30><color=#ffff00>Aproposmath's Stationeers Patches</color></size>
 Various patches for Stationeers.
 
+- Show detailed mood and hygiene stats in the tooltips
+
+Only relevant on stable (already fixed by the game on beta):
 - Fix `StackSize` LogicType in IC10 to read the total number of a attached devices in a cable network
-- Add IC10 instructions for hash evaluation at run-time (highly experimental, just for testing, disabled by default)
 - Fix indirect register access in `l` and `s` IC10 instructions (e.g. `s rr2 Setting 22`)
 - Fix access to defined numbers in `l` and `s` IC10 instructions (e.g. `s MYDEFINE Setting 42`)
 - Rotate content of logic displays if they are mounted upside down (disabled on newer game versions, where it's fixed already)
