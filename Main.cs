@@ -36,7 +36,7 @@ namespace AproposmathsStationeersPatches
             {
                 L.SetLogger(this.Logger);
                 this.Logger.LogInfo(
-                    $"Awake ${PluginName} {VersionInfo.VersionGit}, build time {VersionInfo.BuildTime}");
+                    $"Awake ${PluginName} {PluginVersion}, build time {ThisModInfo.BuildTime}");
 
                 var gameVersion = typeof(GameManager).Assembly.GetName().Version;
 
@@ -82,24 +82,22 @@ namespace AproposmathsStationeersPatches
             }
             catch (Exception ex)
             {
-                this.Logger.LogError($"Error during ${PluginName} {VersionInfo.VersionGit} init: {ex}");
+                this.Logger.LogError($"Error during ${PluginName} {ThisModInfo.VersionGit} init: {ex}");
             }
         }
 
         private void OnDestroy()
         {
-            Logger.LogInfo($"[{PluginName}] OnDestroy (Version: {VersionInfo.VersionGit})");
+            Logger.LogInfo($"[{PluginName}] OnDestroy (Version: {ThisModInfo.VersionGit})");
 
-            if (_harmony is null)
+            if (_harmony is null || !ModUtils.IsLoadedByScriptEngine(typeof(CommunityPatchesPlugin)))
                 return;
 
             try
             {
-#if DEBUG
                 // assume that a debug build is loaded by BepInEx ScriptEngine and unpatch
                 L.Info("Debug build detected, unpatching all Harmony patches");
                 _harmony.UnpatchSelf();
-#endif
             }
             catch (Exception ex)
             {
