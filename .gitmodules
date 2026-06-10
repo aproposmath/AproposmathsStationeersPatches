@@ -1,3 +1,6 @@
 [submodule "assemblies"]
 	path = assemblies
 	url = https://github.com/ilodev/stationeers.modding.assemblies
+[submodule "Template"]
+	path = Template
+	url = https://github.com/aproposmath/stationeers-modding-template.git

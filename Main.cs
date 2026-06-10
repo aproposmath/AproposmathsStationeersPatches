@@ -5,50 +5,13 @@ namespace AproposmathsStationeersPatches
     using BepInEx;
     using HarmonyLib;
     using Assets.Scripts;
-    using System.Diagnostics;
 
-    class L
-    {
-        private static BepInEx.Logging.ManualLogSource _logger;
-
-        public static void SetLogger(BepInEx.Logging.ManualLogSource logger)
-        {
-            _logger = logger;
-        }
-
-        public static void Debug(string message)
-        {
-            _logger?.LogDebug(message);
-        }
-
-        public static void Log(string message)
-        {
-            _logger?.LogInfo(message);
-        }
-
-        public static void Info(string message)
-        {
-            _logger?.LogInfo(message);
-        }
-
-        public static void Error(string message)
-        {
-            _logger?.LogError(message);
-        }
-
-        public static void Warning(string message)
-        {
-            _logger?.LogWarning(message);
-        }
-
-    }
-
-    [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+    [BepInPlugin(ThisModInfo.ModID, ThisModInfo.AssemblyName, ThisModInfo.Version)]
     public class CommunityPatchesPlugin : BaseUnityPlugin
     {
-        public const string PluginGuid = "aproposmaths-stationeers-patches";
-        public const string PluginName = "Aproposmaths Stationeers Patches";
-        public const string PluginVersion = VersionInfo.Version;
+        public const string PluginGuid = ThisModInfo.ModID;
+        public const string PluginName = ThisModInfo.AssemblyName;
+        public const string PluginVersion = ThisModInfo.Version;
 
         public static ConfigEntry<bool> RotateLogicDisplayText;
         public static ConfigEntry<bool> FixIC10StackSize;
