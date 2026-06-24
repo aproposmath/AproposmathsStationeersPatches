@@ -17,6 +17,8 @@ namespace AproposmathsStationeersPatches
         public static ConfigEntry<bool> FixIC10StackSize;
         public static ConfigEntry<bool> PlayerStats;
         public static ConfigEntry<bool> FixLoadSetIndirectOrDefine;
+        public static ConfigEntry<bool> LogicDisplayOrientationLogicType;
+        public static ConfigEntry<bool> SaveLogicDisplayOrientation;
 
         private void BindAllConfigs()
         {
@@ -24,6 +26,8 @@ namespace AproposmathsStationeersPatches
             FixIC10StackSize = Config.Bind("General", "Fix IC10 StackSize LogicType", true, "Fix reading the number of attached devices on a cable network in IC10");
             PlayerStats = Config.Bind("General", "PlayerStats", true, "Show more detailed player stats in tooltips");
             FixLoadSetIndirectOrDefine = Config.Bind("General", "fix_load_set_indirect_define", true, "Fix Load/Set instructions in IC10 with defined or indirect reference ids");
+            LogicDisplayOrientationLogicType = Config.Bind("General", "LogicDisplayOrientationLogicType", true, "Add LogicType 'Orienation' to Logic Displays, allowing to set the orientation of the display, -1 = upside down, 0 = unchanged, 1 = upside up");
+            SaveLogicDisplayOrientation = Config.Bind("General", "SaveLogicDisplayOrientation", false, "Save Logic Display Orientation (experimental, could potentially interfere with other mods or future game updates)");
         }
 
         private Harmony _harmony = null;
@@ -70,6 +74,12 @@ namespace AproposmathsStationeersPatches
                         _harmony.CreateClassProcessor(typeof(PatchSetLoadIndirectOrDefine), true).Patch();
                         L.Info("FixLoadSetIndirectOrDefine patch applied");
                     }
+                }
+
+                if (LogicDisplayOrientationLogicType.Value)
+                {
+                    _harmony.CreateClassProcessor(typeof(PatchLogicDisplayOrientationLogicType), true).Patch();
+                    L.Info("LogicDisplayOrientationLogicType patch applied");
                 }
             }
             catch (Exception ex)
