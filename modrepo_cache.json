@@ -17,5 +17,22 @@
         ],
         "url": "https://github.com/aproposmath/AproposmathsStationeersPatches/releases/download/main/AproposmathsStationeersPatches-main.zip",
         "version": "0.8.0.6-dev"
+    },
+    "sha256:cbb23478c1566d80e28cd0e9d93aac0840a6f9623d86aa533a5e48241d229264": {
+        "author": "aproposmath",
+        "branch": [],
+        "depends_on": [],
+        "digest": "sha256:cbb23478c1566d80e28cd0e9d93aac0840a6f9623d86aa533a5e48241d229264",
+        "id": "aproposmaths-stationeers-patches",
+        "name": "Aproposmath's Stationeers Patches",
+        "tag": [
+            "IC10",
+            "Patch",
+            "Fix",
+            "BepInEx",
+            "StationeersLaunchPad"
+        ],
+        "url": "https://github.com/aproposmath/AproposmathsStationeersPatches/releases/download/v0.9.0/AproposmathsStationeersPatches-v0.9.0.zip",
+        "version": "0.9.0"
     }
 }
