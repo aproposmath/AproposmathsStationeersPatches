@@ -3,11 +3,11 @@
   >
   <ModVersion
       ModID="aproposmaths-stationeers-patches"
-      Version="0.8.0.4-dev"
+      Version="0.8.0.6-dev"
       Name="Aproposmath's Stationeers Patches"
       Author="aproposmath"
       Url="https://github.com/aproposmath/AproposmathsStationeersPatches/releases/download/main/AproposmathsStationeersPatches-main.zip"
-      Digest="sha256:1a9bdac33cf11cf3f68953bca28a4ae82fe80261d21176338865364a89c10df6"
+      Digest="sha256:b461c1968de0e2498320498fac2d0d0b7b6b4a9638f6b491a5b924cd05837642"
     >
     <Branch
         Value="main"
