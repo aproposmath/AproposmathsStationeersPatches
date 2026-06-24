@@ -17,7 +17,6 @@ namespace AproposmathsStationeersPatches
         public static ConfigEntry<bool> FixIC10StackSize;
         public static ConfigEntry<bool> PlayerStats;
         public static ConfigEntry<bool> FixLoadSetIndirectOrDefine;
-        public static ConfigEntry<bool> FixPressureRegulator;
 
         private void BindAllConfigs()
         {
@@ -25,7 +24,6 @@ namespace AproposmathsStationeersPatches
             FixIC10StackSize = Config.Bind("General", "Fix IC10 StackSize LogicType", true, "Fix reading the number of attached devices on a cable network in IC10");
             PlayerStats = Config.Bind("General", "PlayerStats", true, "Show more detailed player stats in tooltips");
             FixLoadSetIndirectOrDefine = Config.Bind("General", "fix_load_set_indirect_define", true, "Fix Load/Set instructions in IC10 with defined or indirect reference ids");
-            FixPressureRegulator = Config.Bind("General", "FixPressureRegulators", false, "Use gas volume instead of total volume when gas is moved by pressure regulators, fixing regulation overshoot in certain cases");
         }
 
         private Harmony _harmony = null;
@@ -43,7 +41,7 @@ namespace AproposmathsStationeersPatches
                 BindAllConfigs();
 
                 _harmony = new Harmony(PluginGuid);
-                // _harmony.PatchAll();
+                _harmony.PatchAll();
 
                 // This was fixed with version 0.2.6057.26562 of Stationeers, so never apply the patch for newer versions
                 if (gameVersion < Version.Parse("0.2.6057.26562") && RotateLogicDisplayText.Value)
@@ -56,12 +54,6 @@ namespace AproposmathsStationeersPatches
                 {
                     _harmony.CreateClassProcessor(typeof(PatchHumanStats), true).Patch();
                     L.Info("PlayerStats patch applied");
-                }
-
-                if (FixPressureRegulator.Value)
-                {
-                    _harmony.CreateClassProcessor(typeof(PatchPressureRegulator), true).Patch();
-                    L.Info("FixPressureRegulator patch applied");
                 }
 
                 // This was fixed with version 0.2.6330.27281 of Stationeers, so never apply the patch for newer versions
