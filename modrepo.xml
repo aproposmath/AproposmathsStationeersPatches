@@ -6,22 +6,22 @@
       Version="0.9.1"
       Name="Aproposmath's Stationeers Patches"
       Author="aproposmath"
-      Url="https://github.com/aproposmath/AproposmathsStationeersPatches/releases/download/v0.9.1/AproposmathsStationeersPatches-v0.9.1.zip"
-      Digest="sha256:3a8e1618d2ff653bf9fea44c77d90e79006cb3b0508a035a6ab020d8575f92fc"
-  />
-  <ModVersion
-      ModID="aproposmaths-stationeers-patches"
-      Version="0.9.0.1-dev"
-      Name="Aproposmath's Stationeers Patches"
-      Author="aproposmath"
       Url="https://github.com/aproposmath/AproposmathsStationeersPatches/releases/download/main/AproposmathsStationeersPatches-main.zip"
-      Digest="sha256:47137a26bbc179c654a241c332607a2943c5ce3a30748eb39152c339b92cc009"
+      Digest="sha256:c00ffbe5d0fa76b9a4f1f0caf8c241290870fbb7b8f75a59b43992e795ada6a1"
     >
     <Branch
         Value="main"
     />
   </ModVersion
   >
+  <ModVersion
+      ModID="aproposmaths-stationeers-patches"
+      Version="0.9.1"
+      Name="Aproposmath's Stationeers Patches"
+      Author="aproposmath"
+      Url="https://github.com/aproposmath/AproposmathsStationeersPatches/releases/download/v0.9.1/AproposmathsStationeersPatches-v0.9.1.zip"
+      Digest="sha256:83bf688eb2565f0d9ceff0cacb3ca45aabb96f9612ba9c0c8923651ead9b019f"
+  />
   <ModVersion
       ModID="aproposmaths-stationeers-patches"
       Version="0.9.0"
