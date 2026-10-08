@@ -3,6 +3,7 @@
 Various small patches/enhancements for Stationeers
 
 - Show detailed mood and hygiene stats in the tooltips
+- Fix distant light flares of beacons and lights being invisible (they were moved inside their own light and below the curved terrain)
 - Fix overshoot of pressure regulators if liquid is in input/output pipes (highly experimental, disabled by default)
 
 Stable only (these issues are fixed in the latest game versions on beta, but not in the stable branch yet):

@@ -19,6 +19,7 @@ namespace AproposmathsStationeersPatches
         public static ConfigEntry<bool> FixLoadSetIndirectOrDefine;
         public static ConfigEntry<bool> LogicDisplayOrientationLogicType;
         public static ConfigEntry<bool> SaveLogicDisplayOrientation;
+        public static ConfigEntry<bool> FixLodFlares;
 
         private void BindAllConfigs()
         {
@@ -28,6 +29,7 @@ namespace AproposmathsStationeersPatches
             FixLoadSetIndirectOrDefine = Config.Bind("General", "fix_load_set_indirect_define", true, "Fix Load/Set instructions in IC10 with defined or indirect reference ids");
             LogicDisplayOrientationLogicType = Config.Bind("General", "LogicDisplayOrientationLogicType", true, "Add LogicType 'Orienation' to Logic Displays, allowing to set the orientation of the display, -1 = upside down, 0 = unchanged, 1 = upside up");
             SaveLogicDisplayOrientation = Config.Bind("General", "SaveLogicDisplayOrientation", false, "Save Logic Display Orientation (experimental, could potentially interfere with other mods or future game updates)");
+            FixLodFlares = Config.Bind("General", "FixLodFlares", false, "Fix distant light flares (beacons, lights) being hidden by their own light or by the curved terrain");
         }
 
         private Harmony _harmony = null;
@@ -81,6 +83,14 @@ namespace AproposmathsStationeersPatches
                     _harmony.CreateClassProcessor(typeof(PatchLogicDisplayOrientationLogicType), true).Patch();
                     L.Info("LogicDisplayOrientationLogicType patch applied");
                 }
+
+                // Broken with version 0.2.6376.27557 of Stationeers (flares moved onto the curved origin of their thing)
+                if (gameVersion >= Version.Parse("0.2.6376.27557") && FixLodFlares.Value)
+                {
+                    _harmony.CreateClassProcessor(typeof(PatchLodFlares), true).Patch();
+                    PatchLodFlares.Enable();
+                    L.Info("FixLodFlares patch applied");
+                }
             }
             catch (Exception ex)
             {
@@ -100,6 +110,7 @@ namespace AproposmathsStationeersPatches
                 // assume that a debug build is loaded by BepInEx ScriptEngine and unpatch
                 L.Info("Debug build detected, unpatching all Harmony patches");
                 _harmony.UnpatchSelf();
+                PatchLodFlares.Disable();
             }
             catch (Exception ex)
             {
